@@ -22324,7 +22324,7 @@ def _mac_should_set_alpha_to_99():
     try:
         platform_mac_ver = platform.mac_ver()[0]
         mac_ver = platform_mac_ver.split('.')
-        if int(mac_ver[0]) >= 12 and int(mac_ver[0]) >= 3:
+        if (int(mac_ver[0]) >= 12 and int(mac_ver[1]) >= 3) or int(mac_ver[0]) >= 13 :
             print("Mac OS Version is {} and patch enabled so applying the patch".format(platform_mac_ver))
             return True
     except Exception as e:
