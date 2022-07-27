@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-version = __version__ = "4.60.2 Released 26-Jul-2022"
+version = __version__ = "4.60.3 Released 27-Jul-2022"
 
 _change_log = """
     Changelog since 4.60.0 released to PyPI on 8-May-2022.  These are "Dot" releases....
@@ -10,6 +10,8 @@ _change_log = """
             Was created when the ttk scrollbars were added
     4.60.2
         A "dot-release" for Mac 12.3+ "Invisible window" problem. Adds option in Mac control panel to set Alpha to 0.99 as default
+    4.60.3
+        Another shot at the 12.3+ Mac OS problem.  Had bug in the version check code
     """
 
 __version__ = version.split()[0]  # For PEP 396 and PEP 345
@@ -141,7 +143,6 @@ from uuid import uuid4
 # get the tkinter detailed version
 tclversion_detailed = tkinter.Tcl().eval('info patchlevel')
 framework_version = tclversion_detailed
-
 import time
 import pickle
 import calendar
@@ -22318,8 +22319,13 @@ def _mac_should_set_alpha_to_99():
     if not ENABLE_MAC_ALPHA_99_PATCH:
         return False
 
+    # At this point, we're running a Mac and the alpha patch is enabled
+    # Final check is to see if Mac OS version is 12.3 or later
     try:
-        if (float(platform.mac_ver()[0]) >= 12.3):
+        platform_mac_ver = platform.mac_ver()[0]
+        mac_ver = platform_mac_ver.split('.')
+        if int(mac_ver[0]) >= 12 and int(mac_ver[0]) >= 3:
+            print("Mac OS Version is {} and patch enabled so applying the patch".format(platform_mac_ver))
             return True
     except Exception as e:
         warnings.warn('_mac_should_seet_alpha_to_99 Exception while trying check mac_ver. Error = {}'.format(e), UserWarning)
