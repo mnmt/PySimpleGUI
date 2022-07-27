@@ -22323,7 +22323,7 @@ def _mac_should_set_alpha_to_99():
     # Final check is to see if Mac OS version is 12.3 or later
     try:
         platform_mac_ver = platform.mac_ver()[0]
-        mac_ver = platform_mac_ver.split('.')
+        mac_ver = platform_mac_ver.split('.') if '.' in platform_mac_ver  else (platform_mac_ver, 0)
         if (int(mac_ver[0]) >= 12 and int(mac_ver[1]) >= 3) or int(mac_ver[0]) >= 13 :
             print("Mac OS Version is {} and patch enabled so applying the patch".format(platform_mac_ver))
             return True
