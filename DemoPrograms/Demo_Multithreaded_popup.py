@@ -10,13 +10,13 @@ import queue
 
 
     Safest approach to threading is to use a Queue object to communicate
-    between threads and maintrhead.
+    between threads and mainthread.
 
     The thread calls popup, a LOCAL function that should be called with the same
-    parameters that would be used to call opiup when called directly
+    parameters that would be used to call popup when called directly
 
     The parameters passed to the local popup are passed through a queue to the main thread.
-    When a messages is received from the queue, sg.popup is called using the parms passed
+    When a messages is received from the queue, sg.popup is called using the params passed
     through the queue
     
     Copyright 2021 PySimpleGUI.org

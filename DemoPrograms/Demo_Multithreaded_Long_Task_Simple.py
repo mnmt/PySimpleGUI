@@ -12,7 +12,7 @@ import PySimpleGUI as sg
 
     There are 2 ways "progress" is being reported to the user. 
     You can simulate the 2 different scenarios that happen with worker threads.
-    1.  If a the amount of time is known ahead of time or the work can be broken down into countable units, then a progress bar is used.  
+    1.  If the amount of time is known ahead of time or the work can be broken down into countable units, then a progress bar is used.  
     2.  If a task is one long chunk of time that cannot be broken down into smaller units, then an animated GIF is shown that spins as
     long as the task is running.
 """
@@ -75,7 +75,7 @@ def the_gui():
         elif event == '-THREAD-':            # Thread has completed
             thread.join(timeout=0)
             print('Thread finished')
-            sg.popup_animated(None)                     # stop animination in case one is running
+            sg.popup_animated(None)                     # stop animation in case one is running
             thread, message, progress, timeout = None, '', 0, None     # reset variables for next run
             window['-PROG-'].update_bar(0,0)            # clear the progress bar
         if values['-ONE CHUNK-'] and thread is not None:

@@ -3,7 +3,7 @@ import time
 import threading
 
 """
-    Demo - Multi-threaded - Show Windows and perform other PySimpleGUI calls in what appread to be from a thread
+    Demo - Multi-threaded - Show Windows and perform other PySimpleGUI calls in what appears to be from a thread
     
     Just so that it's clear, you CANNOT make PySimpleGUI calls directly from a thread.  There is ONE exception to this
     rule.  A thread may call  window.write_event_values which enables it to communicate to a window through the window.read calls.
@@ -26,7 +26,7 @@ import threading
 
 
 # Design decision was to make the window a global.  You can just as easily pass it to your function after initizing your window
-# But there becomes a problem then of wheere do you place the thread startup code.  Using this global decouples them so that
+# But there becomes a problem then of where do you place the thread startup code.  Using this global decouples them so that
 # the thread is not started in the function that makes and executes the GUI
 
 window:sg.Window = None

@@ -10,7 +10,7 @@ import PySimpleGUI as sg
         
     You cannot make any direct calls into PySimpleGUI from a thread
     except for Window.write_event_value()
-    Cuation - This method still has a risk of tkinter crashing
+    Caution - This method still has a risk of tkinter crashing
     
     Copyright 2021 PySimpleGUI
 """
@@ -39,7 +39,7 @@ def the_thread(window:sg.Window, seconds):
 def main():
     """
     Every time "Start A Thread" is clicked a new thread is started
-    When the event is received from the thread, a popup is shown in its behalf
+    When the event is received from the thread, a popup is shown on its behalf
     """
 
     layout = [  [sg.Output(size=(60,10))],

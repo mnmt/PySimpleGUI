@@ -4895,7 +4895,7 @@ Parameter Descriptions:
 |Type|Name|Meaning|
 |--|--|--|
 |                                      Any                                       |            default_text            | Text initially shown in the input box as a default value(Default value = ''). Will automatically be converted to string |
-|                       (int, int) or  (int, None) or int                        |                size                | w=characters-wide, h=rows-high. If an int is supplied rather than a tuple, then a tuple is created width=int supplied and heigh=1 |
+|                       (int, int) or  (int, None) or int                        |                size                | w=characters-wide, h=rows-high. If an int is supplied rather than a tuple, then a tuple is created width=int supplied and height=1 |
 |                       (int, int)  or (None, None) or int                       |                 s                  | Same as size parameter. It's an alias. If EITHER of them are set, then the one that's set will be used. If BOTH are set, size will be used |
 |                                      bool                                      |              disabled              | set disable state for element (Default = False) |
 |                                      char                                      |           password_char            | Password character if this is a password field (Default value = '') |

@@ -10,7 +10,7 @@ import PySimpleGUI as sg
     The PySimpleGUI code, and thus the underlying GUI framework, runs as the primary, main thread
     Other parts of the software are implemented as threads
     
-    While users never know the implementation details within PySimpleGUI, the mechanism is that a queue.Queue
+    While users never know the implementation details within PySimpleGUI, the mechanism is that a queue. Queue
     is used to communicate data between a thread and a PySimpleGUI window.
     The PySimpleGUI code is structured just like a typical PySimpleGUI program.  A layout defined,
         a Window is created, and an event loop is executed.
@@ -33,7 +33,7 @@ def worker_thread1(thread_name, run_freq,  window):
     A worker thread that communicates with the GUI
     These threads can call functions that block without affecting the GUI (a good thing)
     Note that this function is the code started as each thread. All threads are identical in this way
-    :param thread_name: Text name used  for displaying info
+    :param thread_name: Text name used for displaying info
     :param run_freq: How often the thread should run in milliseconds
     :param window: window this thread will be conversing with
     :type window: sg.Window
